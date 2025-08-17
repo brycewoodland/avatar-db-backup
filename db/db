@@ -17,6 +17,11 @@ CREATE TABLE factions (
     description TEXT
 );
 
+CREATE TABLE character_factions (
+    character_id INT REFERENCES characters(id),
+    organization_id INT REFERENCES organizations(id),
+    PRIMARY KEY(character_id, organization_id)
+);
 -- =========================================
 -- Create Characters Table
 -- =========================================
@@ -110,21 +115,6 @@ CREATE TABLE character_languages (
 );
 
 -- =========================================
--- Organizations Table
--- =========================================
-CREATE TABLE organizations (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description TEXT
-);
-
-CREATE TABLE character_organizations (
-    character_id INT REFERENCES characters(id),
-    organization_id INT REFERENCES organizations(id),
-    PRIMARY KEY(character_id, organization_id)
-);
-
--- =========================================
 -- Quotes Table
 -- =========================================
 CREATE TABLE quotes (
@@ -209,3 +199,41 @@ INSERT INTO characters (id, name, nation_id, date_of_birth, date_of_death, gende
 (20, 'Roku', 1, '82 BG', '12 BG', 'Male', 2.03, 'Black', 'Amber'),
 (21, 'Ozai', 1, '55 BG', NULL, 'Male', 1.83, 'Black', 'Amber');
 
+-- =========================================
+-- Locations
+-- =========================================
+INSERT INTO locations (id, name, nation_id, description) VALUES
+(1, 'Eastern Air Temple', 4, 'One of the two temples exclusively housing female airbenders, later home to Guru Pathik and new airbenders after Harmonic Convergence.'),
+(2, 'Northern Air Temple', 4, 'A temple that hosted only male monks, located in the upper reaches of the northern Earth Kingdom. It was colonized by Earth Kingdom refugees, underwent rapid industrialization, was later restored and inhabited by Air Acolytes, and briefly trained new airbenders before being destroyed by Ghazan''s lavabending attack.'),
+(3, 'Southern Air Temple', 4, 'One of the four sanctuaries owned by the Air Nomads, located closest to the Southern Water Tribe. It was the childhood home of Avatar Aang and where Avatar Roku learned airbending. After the war, it was restored by Air Acolytes and is home to some of the Air Nation''s new airbenders.'),
+(4, 'Western Air Temple', 4, 'Unique among the Air Temples, this one is built upside-down into the underside of a cliff face in an island mountain range north of the Fire Nation. It exclusively housed female airbenders, was a victim of the Air Nomad Genocide, and was later restored to house Air Acolytes and new airbenders.'),
+(5, 'Foggy Swamp', 3, 'A vast and mysterious wetland in the southwestern Earth Kingdom, home to the Foggy Swamp Tribe, who are descended from Southern Water Tribe immigrants. It is notable for its extensive unique flora and fauna, including a towering banyan grove tree.'),
+(6, 'Northern Water Tribe', 2, 'The largest division of its nation, located on an island near the North Pole. Its capital city, Agna Qel''a, prospered in isolation and was never conquered by the Fire Nation during the Hundred Year War.'),
+(7, 'Southern Water Tribe', 2, 'A minor division of the Water Tribe, consisting of scattered villages and settlements by the South Pole. Nearly extinct during the Hundred Year War due to Fire Nation raids, it later saw major expansion and developed a large harbor city and numerous smaller settlements.'),
+(8, 'Full Moon Bay', 3, 'A secluded cove in East Lake, just south of Ba Sing Se, serving as a hidden ferry station for refugees traveling to Ba Sing Se.'),
+(9, 'Great Divide', 3, 'The largest canyon in the world, located in the rocky regions of the central Earth Kingdom.'),
+(10, 'Si Wong Desert', 3, 'The largest desert in the world, located in the Earth Kingdom. It is extremely difficult to navigate and is sparsely inhabited by the Si Wong tribes.'),
+(11, 'Ba Sing Se', 3, 'The monolithic capital of the Earth Kingdom, encompassing nearly the entire northeast corner of the country. It was the last great Earth Kingdom stronghold after the fall of Omashu and is known as the "impenetrable city" due to its two insurmountable walls.'),
+(12, 'The Serpent''s Pass', 3, 'A narrow strip of land between the East and West Lakes, linking the southern and northern halves of the Earth Kingdom. It is one of the very few direct paths to Ba Sing Se, named after the serpent that guards its passage below the lakes, making it a generally avoided entryway.'),
+(13, 'The Merchant Town', 3, 'A minor trading settlement located high in the mountains of the northwestern Earth Kingdom, historically known as the site of numerous airbender murders by firebenders lured by rumors of Air Nomad relics.'),
+(14, 'Chin Village', 3, 'A small town located on the cliffs of the Earth Kingdom''s southwestern coast, named for Chin the Great. It hosts the unique "Avatar Day" festival, which evolved from a celebration of hate into one of honor for the Avatar.'),
+(15, 'Gaoling', 3, 'A large town located within a mountain range in the southern Earth Kingdom. It is home to both the wealthy Beifong family and the Earth Rumble tournaments. It remained untouched by the Hundred Year War due to its non-strategic location.'),
+(16, 'Kyoshi Island', 3, 'A small island off the southern coast of the Earth Kingdom, famous as the birthplace of Avatar Kyoshi and home of the elite Kyoshi Warriors. It was created when Avatar Kyoshi separated the Yokoya Peninsula from the mainland to protect her people from Chin the Conqueror.'),
+(17, 'Omashu', 3, 'The second largest city in the Earth Kingdom and capital of one of its provinces. It was a major stronghold and supplier of men and weaponry before its fall to the Fire Nation and renaming as New Ozai. It was later single-handedly liberated by King Bumi during the Day of Black Sun.'),
+(18, 'The Plains Village', 3, 'Located in the arid grasslands of the southern Earth Kingdom, west of the Si Wong Desert. This village was often under the oppressive influence of a gang led by Gow, who posed as Earth Kingdom soldiers. It was also home to the Lee Family Pig Farm.'),
+(19, 'Zaofu', 3, 'An autonomous city-state in the southwestern Earth Kingdom, home of the Metal Clan. Founded by Suyin Beifong, it is constructed entirely out of metal and is considered one of the safest cities in the world. It was temporarily annexed by the Earth Empire but later returned to Suyin''s control.'),
+(20, 'Cave of Two Lovers', 3, 'Located near the city of Omashu in the Earth Kingdom, this is a secret tunnel passing through the Kolau Mountain Range. It is a giant underground labyrinth full of dangerous animals like wolfbats and badgermoles, historically leading to the discovery of the original earthbending masters, the Badgermoles.'),
+(21, 'The Farming Village', 3, 'A small village located in the western Earth Kingdom, west of the Si Wong Desert. Zuko and Iroh traveled here for Iroh to receive treatment for a rash caused by the white jade plant. The Lee Family Pig Farm is located outside this village.'),
+(22, 'Gaipan', 3, 'A small village located in the central Earth Kingdom that was overtaken by the Fire Nation and subsequently destroyed by a catastrophic flood after its evacuation.'),
+(23, 'The Mining Village', 3, 'A medium-sized village located on the northwestern coast of the Earth Kingdom, whose inhabitants make a living by mining coal in several nearby mines.'),
+(24, 'The River Village', 3, 'A village located in the western Earth Kingdom, situated between the forks of a large river. It serves as a regional trading hub and ideal location for merchants to sell their wares.'),
+(25, 'The Boiling Rock', 1, 'A massive Fire Nation prison located on an island in the middle of a boiling lake on a volcanic island, used to hold the most dangerous domestic and foreign prisoners.'),
+(26, 'Ember Island', 1, 'A small resort located in the outer islands of the Fire Nation, known for its luxurious resorts, vacation homes for the wealthy, and popular beaches for kuai ball games.'),
+(27, 'Fire Fountain City', 1, 'A large, industrial city located on one of the many islands in the eastern half of the Fire Nation, named for the large, fire-breathing statue of Fire Lord Ozai in its center.'),
+(28, 'Fire Nation Capital', 1, 'The seat of government for the Fire Nation, located on the Capital Island in the western region. It is home to the Fire Lord, the royal family, and the nobles of the Fire Nation.'),
+(29, 'Hira''a', 3, 'A small settlement surrounded by mountains and lush forests, situated relatively close to the Forgetful Valley in the Earth Kingdom.'),
+(30, 'Jang Hui', 1, 'A small, poor village located in the outer islands of the Fire Nation, on the Jang Hui River. This unique Fire Nation village is made up of floating houseboats connected together.'),
+(31, 'Shu Jing', 1, 'A small, peaceful village located in the Fire Nation, situated on a cliff above a river and waterfalls, and surrounded by beautiful mountains.'),
+(32, 'Jet''s Forest', 3, 'A dense forest located in the western Earth Kingdom, in the vicinity of a treetop hideout, and near the valley where the village of Gaipan was established.'),
+(33, 'Wan Shi Tong''s Library', NULL, 'A vast and ancient library located in the Spirit World, curated by the spirit Wan Shi Tong. It contains knowledge from both the human and spirit worlds.'),
+(34, 'Chuje Islands', 1, 'A small chain of islands within the Fire Nation, known for their picturesque beaches and being a popular destination for leisure.');
