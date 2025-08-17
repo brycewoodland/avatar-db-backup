@@ -182,3 +182,9 @@ INSERT INTO factions (name, nation_id, description) VALUES
 ('Future Industries', 3, 'Company founded by Hiroshi Sato; now owned by Asami. Produces luxury Satomobiles daily using advanced tech.'),
 ('The Order of the White Lotus', NULL, 'Ancient secret society of scholars from all nations. Devoted to sharing knowledge/philosophy. Formed over Pai Sho.'),
 ('Team Avatar', NULL, 'Aang''s group saving world from Fire Nation. Members: Aang, Katara, Sokka, Appa, Momo, Toph, Zuko, Suki.');
+
+-- =========================================
+-- Characters
+-- =========================================
+INSERT INTO characters (id, name, nation_id, date_of_birth, date_of_death, gender, height, hair_color, eye_color) VALUES
+(1, 'Aang', 4, '12 BG', '153 AG', 'Male', 1.57, 'Bald (blue arrow tattoo)', 'Grey');
