@@ -248,3 +248,19 @@ VALUES
   ('Earthbending', 'A bending art from the Earth Kingdom, originally learned from badgermoles. It focuses on fortitude, strength, and neutral jing. Its sub-skills are seismic sense, metalbending, and lavabending.'),
   ('Firebending', 'The most aggressive bending art of the Fire Nation, originally learned from dragons. It focuses on power, direct attacks, and creating fire from an internal heat source. Its sub-skills are combustionbending, generating lightning, and redirecting lightning.'),
   ('Energybending', 'An ancient bending art that allows a user to manipulate life energy. It can be used to remove or restore a person''s bending, but is considered a highly dangerous technique.');
+
+-- =========================================
+-- Animals
+-- =========================================
+INSERT INTO animals (name, species, owner_character_id)
+VALUES
+  ('Appa', 'Sky Bison', (SELECT id FROM characters WHERE name = 'Aang')),
+  ('Wan Shi Tong', 'Owl Spirit', NULL),
+  ('Tui', 'Koi Fish Spirit', NULL),
+  ('Momo', 'Winged Lemur', (SELECT id FROM characters WHERE name = 'Aang')),
+  ('La', 'Koi Fish Spirit', NULL),
+  ('Hei Bai', 'Forest Spirit', NULL),
+  ('Bosco', 'Bear', (SELECT id FROM characters WHERE name = 'Earth King Kuei')),
+  ('Ancient One', 'Lion Turtle', NULL),
+  ('Nyla', 'Shirshu', (SELECT id FROM characters WHERE name = 'June')),
+  ('The Earth Kingdom Badgermoles', 'Badgermole', NULL);
