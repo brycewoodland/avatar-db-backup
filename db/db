@@ -428,3 +428,33 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Jet'), (SELECT id FROM weapons WHERE name = 'Hook swords')),
   ((SELECT id FROM characters WHERE name = 'Jet'), (SELECT id FROM weapons WHERE name = 'Poison knife')),
   ((SELECT id FROM characters WHERE name = 'Appa'), (SELECT id FROM weapons WHERE name = 'Flying bison armor'));
+
+-- =========================================
+-- Character Bending
+-- =========================================
+INSERT INTO character_bending (character_id, bending_id)
+VALUES
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM bending_styles WHERE name = 'Airbending')),
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM bending_styles WHERE name = 'Energybending')),
+  ((SELECT id FROM characters WHERE name = 'Gyatso'), (SELECT id FROM bending_styles WHERE name = 'Airbending')),
+  ((SELECT id FROM characters WHERE name = 'Katara'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Hama'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Pakku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Kanna'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Toph Beifong'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
+  ((SELECT id FROM characters WHERE name = 'King Bumi'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM bending_styles WHERE name = 'Airbending')),
+  ((SELECT id FROM characters WHERE name = 'Zuko'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Azula'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Iroh'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Firebending')),
+  ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Airbending')),
+  ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
+  ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
+  ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
