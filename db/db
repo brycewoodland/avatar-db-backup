@@ -197,7 +197,8 @@ INSERT INTO characters (id, name, nation_id, date_of_birth, date_of_death, gende
 (18, 'Ursa', 1, '66 BG', NULL, 'Female', NULL, 'Black', 'Amber'),
 (19, 'Mai', 1, '85 BG', NULL, 'Female', 1.63, 'Black', 'Amber'),
 (20, 'Roku', 1, '82 BG', '12 BG', 'Male', 2.03, 'Black', 'Amber'),
-(21, 'Ozai', 1, '55 BG', NULL, 'Male', 1.83, 'Black', 'Amber');
+(21, 'Ozai', 1, '55 BG', NULL, 'Male', 1.83, 'Black', 'Amber'),
+(22, 'Appa', 4, '100 BG', NULL, 'Male', 4.5, 'White', 'Grey');
 
 -- =========================================
 -- Locations
@@ -403,3 +404,27 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'King Bumi'), 'The guards will show you to your chamber. The one that used to be the bad chamber, until the recent refurbishing that is. Of course, we''ve been calling it the new chamber, but we really should number them. Uh, take them to the refurbished chamber that was once bad!'),
   ((SELECT id FROM characters WHERE name = 'Aang'), 'When we hit our lowest point, we are open to the greatest change.'),
   ((SELECT id FROM characters WHERE name = 'Aang'), 'The past can be a great teacher.');
+
+-- =========================================
+-- Character Weapons
+-- =========================================
+INSERT INTO character_weapons (character_id, weapon_id)
+VALUES
+  ((SELECT id FROM characters WHERE name = 'Aang'), (SELECT id FROM weapons WHERE name = 'Air Nomad glider')),
+  ((SELECT id FROM characters WHERE name = 'Sokka'), (SELECT id FROM weapons WHERE name = 'Boomerang')),
+  ((SELECT id FROM characters WHERE name = 'Sokka'), (SELECT id FROM weapons WHERE name = 'Whale''s tooth scimitar')),
+  ((SELECT id FROM characters WHERE name = 'Sokka'), (SELECT id FROM weapons WHERE name = 'Machete')),
+  ((SELECT id FROM characters WHERE name = 'Sokka'), (SELECT id FROM weapons WHERE name = 'Jian sword')),
+  ((SELECT id FROM characters WHERE name = 'Zuko'), (SELECT id FROM weapons WHERE name = 'Dual broadswords')),
+  ((SELECT id FROM characters WHERE name = 'Zuko'), (SELECT id FROM weapons WHERE name = 'Jian sword')),
+  ((SELECT id FROM characters WHERE name = 'Mai'), (SELECT id FROM weapons WHERE name = 'Stiletto')),
+  ((SELECT id FROM characters WHERE name = 'Mai'), (SELECT id FROM weapons WHERE name = 'Throwing knives')),
+  ((SELECT id FROM characters WHERE name = 'Ursa'), (SELECT id FROM weapons WHERE name = 'Poison')),
+  ((SELECT id FROM characters WHERE name = 'Suki'), (SELECT id FROM weapons WHERE name = 'Collapsible wrist-shield')),
+  ((SELECT id FROM characters WHERE name = 'Suki'), (SELECT id FROM weapons WHERE name = 'War fans')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM weapons WHERE name = 'Collapsible wrist-shield')),
+  ((SELECT id FROM characters WHERE name = 'Kyoshi'), (SELECT id FROM weapons WHERE name = 'War fans')),
+  ((SELECT id FROM characters WHERE name = 'Jet'), (SELECT id FROM weapons WHERE name = 'Butterfly sword')),
+  ((SELECT id FROM characters WHERE name = 'Jet'), (SELECT id FROM weapons WHERE name = 'Hook swords')),
+  ((SELECT id FROM characters WHERE name = 'Jet'), (SELECT id FROM weapons WHERE name = 'Poison knife')),
+  ((SELECT id FROM characters WHERE name = 'Appa'), (SELECT id FROM weapons WHERE name = 'Flying bison armor'));
