@@ -19,7 +19,7 @@ CREATE TABLE factions (
 
 CREATE TABLE character_factions (
     character_id INT REFERENCES characters(id),
-    organization_id INT REFERENCES organizations(id),
+    organization_id INT REFERENCES factions(id),
     PRIMARY KEY(character_id, organization_id)
 );
 -- =========================================
@@ -459,4 +459,5 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
