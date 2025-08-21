@@ -182,19 +182,19 @@ INSERT INTO characters (id, name, nation_id, date_of_birth, date_of_death, gende
 (3, 'Katara', 2, '14 BG', NULL, 'Female', 1.63, 'Dark Brown', 'Blue'),
 (4, 'Sokka', 2, '15 BG', 'Between 158 and 170 AG', 'Male', 1.68, 'Brown', 'Blue'),
 (5, 'Yue', 2, '84 BG', '100 AG', 'Female', 1.65, 'White', 'Blue'),
-(6, 'Hakoda', 2, NULL, NULL, 'Male', 1.93, 'Black', 'Blue'),
+(6, 'Hakoda', 2, '48 BG', NULL, 'Male', 1.93, 'Black', 'Blue'),
 (7, 'Kanna', 2, '19 AG', NULL, 'Female', NULL, 'White', 'Blue'),
-(8, 'Hama', 2, NULL, NULL, 'Female', NULL, 'Black', 'Grey'),
-(9, 'Pakku', 2, NULL, NULL, 'Male', NULL, 'White', 'Blue'),
-(10, 'Suki', 3, NULL, NULL, 'Female', 1.63, 'Black', 'Blue'),
+(8, 'Hama', 2, '45 BG', NULL, 'Female', NULL, 'Black', 'Grey'),
+(9, 'Pakku', 2, '44 BG', NULL, 'Male', NULL, 'White', 'Blue'),
+(10, 'Suki', 3, '85 BG', NULL, 'Female', 1.63, 'Black', 'Blue'),
 (11, 'Toph Beifong', 3, '88 BG', NULL, 'Female', 1.50, 'Black', 'Green'),
 (12, 'King Bumi', 3, '12 BG', 'Between 102 and 124 AG', 'Male', NULL, 'White (brown in youth)', 'Green'),
-(13, 'Jet', 3, NULL, '100 AG', 'Male', 1.73, 'Brown', 'Brown'),
+(13, 'Jet', 3, '87 BG', '100 AG', 'Male', 1.73, 'Brown', 'Brown'),
 (14, 'Kyoshi', 3, '312 BG', '82 BG', 'Female', 2.13, 'Black', 'Brown'),
 (15, 'Zuko', 1, '83 BG', NULL, 'Male', 1.73, 'Black', 'Amber'),
 (16, 'Azula', 1, '85 BG', NULL, 'Female', 1.63, 'Black', 'Amber'),
 (17, 'Iroh', 1, '45 BG', NULL, 'Male', 1.65, 'Grey (dark brown in youth)', 'Amber'),
-(18, 'Ursa', 1, NULL, NULL, 'Female', NULL, 'Black', 'Amber'),
+(18, 'Ursa', 1, '66 BG', NULL, 'Female', NULL, 'Black', 'Amber'),
 (19, 'Mai', 1, '85 BG', NULL, 'Female', 1.63, 'Black', 'Amber'),
 (20, 'Roku', 1, '82 BG', '12 BG', 'Male', 2.03, 'Black', 'Amber'),
 (21, 'Ozai', 1, '55 BG', NULL, 'Male', 1.83, 'Black', 'Amber');
@@ -237,3 +237,14 @@ INSERT INTO locations (id, name, nation_id, description) VALUES
 (32, 'Jet''s Forest', 3, 'A dense forest located in the western Earth Kingdom, in the vicinity of a treetop hideout, and near the valley where the village of Gaipan was established.'),
 (33, 'Wan Shi Tong''s Library', NULL, 'A vast and ancient library located in the Spirit World, curated by the spirit Wan Shi Tong. It contains knowledge from both the human and spirit worlds.'),
 (34, 'Chuje Islands', 1, 'A small chain of islands within the Fire Nation, known for their picturesque beaches and being a popular destination for leisure.');
+
+-- =========================================
+-- Bending Styles
+-- =========================================
+INSERT INTO bending_styles (name, description)
+VALUES
+  ('Airbending', 'The bending art of the Air Nomads, originally learned from the flying bison. It focuses on speed, evasion, and defense. Its sub-skills are flight and spiritual projection.'),
+  ('Waterbending', 'A bending art practiced by the Water Tribes, originally learned from the Moon. It focuses on adaptability, versatility, and turning an opponent''s energy against them. Its sub-skills are healing and bloodbending.'),
+  ('Earthbending', 'A bending art from the Earth Kingdom, originally learned from badgermoles. It focuses on fortitude, strength, and neutral jing. Its sub-skills are seismic sense, metalbending, and lavabending.'),
+  ('Firebending', 'The most aggressive bending art of the Fire Nation, originally learned from dragons. It focuses on power, direct attacks, and creating fire from an internal heat source. Its sub-skills are combustionbending, generating lightning, and redirecting lightning.'),
+  ('Energybending', 'An ancient bending art that allows a user to manipulate life energy. It can be used to remove or restore a person''s bending, but is considered a highly dangerous technique.');
