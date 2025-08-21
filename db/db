@@ -198,7 +198,8 @@ INSERT INTO characters (id, name, nation_id, date_of_birth, date_of_death, gende
 (19, 'Mai', 1, '85 BG', NULL, 'Female', 1.63, 'Black', 'Amber'),
 (20, 'Roku', 1, '82 BG', '12 BG', 'Male', 2.03, 'Black', 'Amber'),
 (21, 'Ozai', 1, '55 BG', NULL, 'Male', 1.83, 'Black', 'Amber'),
-(22, 'Appa', 4, '100 BG', NULL, 'Male', 4.5, 'White', 'Grey');
+(22, 'Appa', 4, '100 BG', NULL, 'Male', 4.5, 'White', 'Grey'),
+(23, 'Cabbage Merchant', 3, NULL, NULL, 'Male', NULL, 'Black', 'Brown');
 
 -- =========================================
 -- Locations
@@ -458,3 +459,4 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
