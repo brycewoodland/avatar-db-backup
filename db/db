@@ -28,7 +28,6 @@ CREATE TABLE character_factions (
 CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    faction_id INT REFERENCES factions(id),
     nation_id INT REFERENCES nations(id),
     date_of_birth DATE,
     date_of_death DATE,
@@ -459,6 +458,7 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
 
 
