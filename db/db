@@ -374,7 +374,7 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Katara'), 'Sometimes it hurts more to hope, and it hurts more to care'),
   ((SELECT id FROM characters WHERE name = 'Smeller Bee'), 'As long as I''m confident with who I am, it doesn''t matter what other people think'),
   ((SELECT id FROM characters WHERE name = 'Iroh'), 'While it is great to believe in one self, a little help from others can be a great blessing'),
-  ((SELECT id FROM characters WHERE characters.name = 'Iroh'), 'Sometimes life is like this dark tunnel. You can''t see the light at the end, but if you just keep moving, you will come to a better place'),
+  ((SELECT id FROM characters WHERE name = 'Iroh'), 'Sometimes life is like this dark tunnel. You can''t see the light at the end, but if you just keep moving, you will come to a better place'),
   ((SELECT id FROM characters WHERE name = 'Iroh'), 'Power and perfection are overrated. I think you are wise to choose happiness and love'),
   ((SELECT id FROM characters WHERE name = 'Zuko'), 'No, it''s not. Look, Sokka, you''re going to fail a lot before things work out.Even though you''ll probably fail over and over and over again...you have to try every time. You can''t quit because you''re afraid you might fail.'),
   ((SELECT id FROM characters WHERE name = 'Aang'), 'The monks used to say that revenge is like a two-headed rat viper. While you watch your enemy go down, you''re being poisoned yourself.'),
@@ -459,5 +459,6 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
 
