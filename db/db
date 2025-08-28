@@ -313,7 +313,6 @@ VALUES
   ('Conical military hat', 'A hat with a wide brim and a rounded or pointed top, worn by Earth Kingdom troops and the Dai Li. It can protect against firebending blasts.'),
   ('Common military armor', 'Full-body armor in various shades of green, gold, brown, and gray. Earthbender armor is designed for movement and has bare feet for increased earth sensitivity.'),
   ('Ostrich horse armor', 'Overlapping brass-colored plates worn on the heads, necks, and legs of ostrich horses used as cavalry beasts by Earth Kingdom troops.'),
-  ('Shield', 'A handheld piece of personal armor, meant to intercept attacks.'),
   ('Collapsible wrist-shield', 'A shield that can be strapped to the wrist and collapses for easy storage, utilized by the Kyoshi Warriors.'),
   ('Blasting jelly', 'An explosive, volatile weapon used for demolition.'),
   ('Ice torpedo', 'Warheads full of blasting jelly with a lit fuse inside, invented by the mechanist to be used against the Fire Nation. Waterbenders are able to propel them because of the surrounding ice.'),
@@ -477,6 +476,7 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
 
 
