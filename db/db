@@ -17,14 +17,8 @@ CREATE TABLE factions (
     description TEXT
 );
 
-CREATE TABLE character_factions (
-    character_id INT REFERENCES characters(id),
-    organization_id INT REFERENCES factions(id),
-    PRIMARY KEY(character_id, organization_id)
-);
-
 -- =========================================
--- Characters Table (Revised)
+-- Characters Table
 -- =========================================
 CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
@@ -36,6 +30,15 @@ CREATE TABLE characters (
     height NUMERIC(4,2),
     hair_color VARCHAR(50),
     eye_color VARCHAR(50)
+);
+
+-- =========================================
+-- Character-Factions Junction Table
+-- =========================================
+CREATE TABLE character_factions (
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    faction_id INT REFERENCES factions(id) ON DELETE CASCADE,
+    PRIMARY KEY(character_id, faction_id)
 );
 
 -- =========================================
@@ -68,20 +71,13 @@ CREATE TABLE bending_styles (
     description TEXT
 );
 
+-- =========================================
+-- Character-Bending Junction Table
+-- =========================================
 CREATE TABLE character_bending (
-    character_id INT REFERENCES characters(id),
-    bending_id INT REFERENCES bending_styles(id),
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    bending_id INT REFERENCES bending_styles(id) ON DELETE CASCADE,
     PRIMARY KEY(character_id, bending_id)
-);
-
--- =========================================
--- Animals Table
--- =========================================
-CREATE TABLE animals (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    species VARCHAR(100),
-    owner_character_id INT REFERENCES characters(id)
 );
 
 -- =========================================
@@ -93,9 +89,12 @@ CREATE TABLE weapons (
     description TEXT
 );
 
+-- =========================================
+-- Character-Weapons Junction Table
+-- =========================================
 CREATE TABLE character_weapons (
-    character_id INT REFERENCES characters(id),
-    weapon_id INT REFERENCES weapons(id),
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    weapon_id INT REFERENCES weapons(id) ON DELETE CASCADE,
     PRIMARY KEY(character_id, weapon_id)
 );
 
@@ -108,10 +107,23 @@ CREATE TABLE languages (
     description TEXT
 );
 
+-- =========================================
+-- Character-Languages Junction Table
+-- =========================================
 CREATE TABLE character_languages (
-    character_id INT REFERENCES characters(id),
-    language_id INT REFERENCES languages(id),
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    language_id INT REFERENCES languages(id) ON DELETE CASCADE,
     PRIMARY KEY(character_id, language_id)
+);
+
+-- =========================================
+-- Animals Table
+-- =========================================
+CREATE TABLE animals (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    species VARCHAR(100),
+    owner_character_id INT REFERENCES characters(id) ON DELETE SET NULL
 );
 
 -- =========================================
@@ -119,9 +131,10 @@ CREATE TABLE character_languages (
 -- =========================================
 CREATE TABLE quotes (
     id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id),
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
     quote TEXT NOT NULL
 );
+
 
 -- =========================================
 -- Nations
@@ -254,18 +267,23 @@ VALUES
 -- =========================================
 -- Animals
 -- =========================================
-INSERT INTO animals (name, species, owner_character_id)
-VALUES
-  ('Appa', 'Sky Bison', (SELECT id FROM characters WHERE name = 'Aang')),
-  ('Wan Shi Tong', 'Owl Spirit', NULL),
-  ('Tui', 'Koi Fish Spirit', NULL),
-  ('Momo', 'Winged Lemur', (SELECT id FROM characters WHERE name = 'Aang')),
-  ('La', 'Koi Fish Spirit', NULL),
-  ('Hei Bai', 'Forest Spirit', NULL),
-  ('Bosco', 'Bear', (SELECT id FROM characters WHERE name = 'Earth King Kuei')),
-  ('Ancient One', 'Lion Turtle', NULL),
-  ('Nyla', 'Shirshu', (SELECT id FROM characters WHERE name = 'June')),
-  ('The Earth Kingdom Badgermoles', 'Badgermole', NULL);
+INSERT INTO animals (name, species, owner_character_id) VALUES
+-- Aang's animals
+('Appa', 'Sky Bison', (SELECT id FROM characters WHERE name='Aang')),
+('Momo', 'Winged Lemur', (SELECT id FROM characters WHERE name='Aang')),
+
+-- Other characters
+('Bosco', 'Bear', (SELECT id FROM characters WHERE name='Katara')), -- Example owner
+('Nyla', 'Shirshu', (SELECT id FROM characters WHERE name='Toph Beifong')),
+
+-- Spirit or independent animals
+('Wan Shi Tong', 'Owl Spirit', NULL),
+('Tui', 'Koi Fish Spirit', NULL),
+('La', 'Koi Fish Spirit', NULL),
+('Hei Bai', 'Forest Spirit', NULL),
+('Ancient One', 'Lion Turtle', NULL),
+('The Earth Kingdom Badgermoles', 'Badgermole', NULL);
+
 
 -- =========================================
 -- Weapons
@@ -459,6 +477,7 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
 
 
