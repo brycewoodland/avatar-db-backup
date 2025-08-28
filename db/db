@@ -135,7 +135,6 @@ CREATE TABLE quotes (
     quote TEXT NOT NULL
 );
 
-
 -- =========================================
 -- Nations
 -- =========================================
@@ -476,10 +475,3 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
-
-
-
-
-
-
-
