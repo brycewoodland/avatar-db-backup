@@ -22,15 +22,16 @@ CREATE TABLE character_factions (
     organization_id INT REFERENCES factions(id),
     PRIMARY KEY(character_id, organization_id)
 );
+
 -- =========================================
--- Create Characters Table
+-- Characters Table (Revised)
 -- =========================================
 CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     nation_id INT REFERENCES nations(id),
-    date_of_birth DATE,
-    date_of_death DATE,
+    date_of_birth VARCHAR(30),
+    date_of_death VARCHAR(30),
     gender VARCHAR(20),
     height NUMERIC(4,2),
     hair_color VARCHAR(50),
@@ -458,6 +459,7 @@ VALUES
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Waterbending')),
   ((SELECT id FROM characters WHERE name = 'Roku'), (SELECT id FROM bending_styles WHERE name = 'Earthbending')),
   ((SELECT id FROM characters WHERE name = 'Ozai'), (SELECT id FROM bending_styles WHERE name = 'Firebending'));
+
 
 
 
