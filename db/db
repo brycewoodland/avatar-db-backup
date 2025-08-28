@@ -283,7 +283,6 @@ INSERT INTO animals (name, species, owner_character_id) VALUES
 ('Ancient One', 'Lion Turtle', NULL),
 ('The Earth Kingdom Badgermoles', 'Badgermole', NULL);
 
-
 -- =========================================
 -- Weapons
 -- =========================================
